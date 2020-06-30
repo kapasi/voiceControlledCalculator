@@ -28,8 +28,10 @@ def operation(inp):
         print(square(num))  
     elif "add" in inp or "+" in inp or "plus" in inp:
         print(add(num))
-    elif "subtract" in inp or "-" in inp or "minus" in inp:
-        print(subtract(num))
+    elif "subtract" in inp and "from" in inp:
+        print(subtract(num,flag=True)) #if flag is true num[1] - num[0]
+    elif "-" in inp or "minus" in inp:
+        print(subtract(num,flag=False)) #if flag is flase num[0] - num[1]    
     elif "multiply" in inp or "times" in inp or "multiplied" in inp or "into" in inp:
         print(multiply(num))    
     elif "divide" in inp or "by" in inp or "/" in inp:
@@ -41,8 +43,11 @@ def add(num):
         total += i
     return total
 
-def subtract(num):
-    total = num[1] - num[0]
+def subtract(num,flag):
+    if flag == True:
+        total = num[1] - num[0]
+    else:
+        total = num[0] - num[1]
     return total
 
 def multiply(num):
