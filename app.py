@@ -32,7 +32,7 @@ def operation(inp):
         print(subtract(num,flag=True)) #if flag is true num[1] - num[0]
     elif "-" in inp or "minus" in inp:
         print(subtract(num,flag=False)) #if flag is flase num[0] - num[1]    
-    elif "multiply" in inp or "times" in inp or "multiplied" in inp or "into" in inp:
+    elif "multiply" in inp or "times" in inp or "multiplied" in inp or "into" in inp or "x" in inp or "*" in inp:
         print(multiply(num))    
     elif "divide" in inp or "by" in inp or "/" in inp:
         print(divide(num))
