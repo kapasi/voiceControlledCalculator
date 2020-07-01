@@ -1,10 +1,11 @@
 import speech_recognition as sr
 from flask import Flask, request, render_template
+from gtts import gTTS
+import os
+import playsound 
 r = sr.Recognizer()
 
 app = Flask(__name__)
-
-
 
 # @app.route('/', methods= ["GET", "POST"])
 # def index():
@@ -17,25 +18,32 @@ def numbers(inp):
             num.append(float(i))
     return num
 
+def voice_out(mytext):
+    mytext = str(mytext)
+    myobj = gTTS(text=mytext, lang='en', slow=False)  
+    filename = 'output.mp3'
+    myobj.save(filename)
+    playsound.playsound(filename)
+    print(mytext)
 
 def operation(inp):
     num = numbers(inp)
     if "mod" in inp or "modulus" in inp or "modulo" in inp or "remainder" in inp:
-        print(mod(num))
+        voice_out(mod(num))
     elif "root" in inp:
-        print(sq_root(num))
+        voice_out(sq_root(num))
     elif "square" in inp or "itself" in inp:
-        print(square(num))  
+        voice_out(square(num))  
     elif "add" in inp or "+" in inp or "plus" in inp:
-        print(add(num))
+        voice_out(add(num))      
     elif "subtract" in inp and "from" in inp:
-        print(subtract(num,flag=True)) #if flag is true num[1] - num[0]
+        voice_out(subtract(num,flag=True)) #if flag is true num[1] - num[0]
     elif "-" in inp or "minus" in inp:
-        print(subtract(num,flag=False)) #if flag is flase num[0] - num[1]    
+        voice_out(subtract(num,flag=False)) #if flag is flase num[0] - num[1]    
     elif "multiply" in inp or "times" in inp or "multiplied" in inp or "into" in inp or "x" in inp or "*" in inp:
-        print(multiply(num))    
+        voice_out(multiply(num))    
     elif "divide" in inp or "by" in inp or "/" in inp:
-        print(divide(num))
+        voice_out(divide(num))
 
 def add(num):
     total = 0
