@@ -55,15 +55,15 @@ def operation(inp):
     elif "square" in inp or "itself" in inp:
         voice_out(square(num))
     elif "add" in inp or "+" in inp or "plus" in inp:
-        voice_out(add(num))      
-    elif "subtract" in inp and "from" in inp:
-        voice_out(subtract(num,flag=True)) #if flag is true num[1] - num[0]
-    elif "-" in inp or "minus" in inp:
-        voice_out(subtract(num,flag=False)) #if flag is flase num[0] - num[1]    
+        voice_out(add(num))       
     elif "multiply" in inp or "times" in inp or "multiplied" in inp or "into" in inp or "x" in inp or "*" in inp:
         voice_out(multiply(num))    
     elif "divide" in inp or "by" in inp or "/" in inp or "bye":
         voice_out(divide(num))
+    elif "subtract" in inp and "from" in inp:
+        voice_out(subtract(num,flag=True)) #if flag is true num[1] - num[0]  
+    elif "-" in inp or "minus" in inp:
+        voice_out(subtract(num,flag=False)) #if flag is flase num[0] - num[1] 
 
 def add(num):
     total = 0
@@ -79,6 +79,7 @@ def subtract(num,flag):
     return total
 
 def multiply(num):
+    
     total = 1
     for i in num:
         total *= i
