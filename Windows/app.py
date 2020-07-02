@@ -24,6 +24,9 @@ def numbers(inp):
     for i in inp.split():
         if isDigit(i):
             num.append(float(i))
+        if "%" in i:
+            num.append(float(i[:len(i)-1]))
+    print(num)
     return num
 
 def voice_out(num_mytext):
@@ -95,12 +98,11 @@ def square(num):
     return total
 
 def percent(num):
-    print(num)
     total = num[0] * num[1] / 100
     return total
 
 with sr.Microphone() as source:
-    print("Kuch toh bolo, sharma kyu rahe hai")
+    print("Kuch toh bolo, sharma kyu rahe ho")
     audio = r.listen(source)
     inp = r.recognize_google(audio)
     print(inp)
