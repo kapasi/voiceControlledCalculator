@@ -26,6 +26,9 @@ def numbers(inp):
             num.append(float(i))
         if "%" in i:
             num.append(float(i[:len(i)-1]))
+        if "/" in i:
+            x = list(map(float, i.split("/")))
+            num.extend(x)
     print(num)
     return num
 
