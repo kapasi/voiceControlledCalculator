@@ -9,17 +9,29 @@ app = Flask(__name__)
 
 # @app.route('/', methods= ["GET", "POST"])
 # def index():
-#    pass
+#     pass
+
+def isDigit(x):
+    try:
+        float(x)
+        return True
+    except ValueError:
+        return False
+
 
 def numbers(inp):
     num =[]
     for i in inp.split():
-        if i.isdigit():
+        if isDigit(i):
             num.append(float(i))
     return num
 
-def voice_out(mytext):
-    mytext = str(mytext)
+def voice_out(num_mytext):
+    if num_mytext == int(num_mytext):
+        mytext = str(int(num_mytext))
+    else:
+        num_mytext = "{:.2f}".format(num_mytext)
+        mytext = str(num_mytext)
     myobj = gTTS(text=mytext, lang='en', slow=False)  
     filename = 'output.mp3'
     myobj.save(filename)
@@ -33,7 +45,7 @@ def operation(inp):
     elif "root" in inp:
         voice_out(sq_root(num))
     elif "square" in inp or "itself" in inp:
-        voice_out(square(num))  
+        voice_out(square(num))
     elif "add" in inp or "+" in inp or "plus" in inp:
         voice_out(add(num))      
     elif "subtract" in inp and "from" in inp:
@@ -42,7 +54,7 @@ def operation(inp):
         voice_out(subtract(num,flag=False)) #if flag is flase num[0] - num[1]    
     elif "multiply" in inp or "times" in inp or "multiplied" in inp or "into" in inp or "x" in inp or "*" in inp:
         voice_out(multiply(num))    
-    elif "divide" in inp or "by" in inp or "/" in inp:
+    elif "divide" in inp or "by" in inp or "/" in inp or "bye":
         voice_out(divide(num))
 
 def add(num):
