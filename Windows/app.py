@@ -40,7 +40,9 @@ def voice_out(num_mytext):
 
 def operation(inp):
     num = numbers(inp)
-    if "mod" in inp or "modulus" in inp or "modulo" in inp or "remainder" in inp:
+    if "percent" in inp or "percentage" in inp or "%" in inp:
+        voice_out(percent(num))
+    elif "mod" in inp or "modulus" in inp or "modulo" in inp or "remainder" in inp:
         voice_out(mod(num))
     elif "root" in inp:
         voice_out(sq_root(num))
@@ -90,6 +92,11 @@ def sq_root(num):
 
 def square(num):
     total = num[0] **2
+    return total
+
+def percent(num):
+    print(num)
+    total = num[0] * num[1] / 100
     return total
 
 with sr.Microphone() as source:
