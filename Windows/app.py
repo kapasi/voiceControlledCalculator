@@ -44,7 +44,10 @@ def voice_out(num_mytext):
     playsound.playsound(filename)
     print(mytext)
 
-def operation(inp):
+def operation(inp):    
+    inp = inp.replace("minus ", " -")
+    inp = inp.replace("negative ", " -")
+    print(inp)
     num = numbers(inp)
     if "percent" in inp or "percentage" in inp or "%" in inp:
         voice_out(percent(num))
@@ -58,7 +61,7 @@ def operation(inp):
         voice_out(add(num))       
     elif "multiply" in inp or "times" in inp or "multiplied" in inp or "into" in inp or "x" in inp or "*" in inp:
         voice_out(multiply(num))    
-    elif "divide" in inp or "by" in inp or "/" in inp or "bye":
+    elif "divide" in inp or "by" in inp or "/" in inp or "bye" in inp:
         voice_out(divide(num))
     elif "subtract" in inp and "from" in inp:
         voice_out(subtract(num,flag=True)) #if flag is true num[1] - num[0]  
