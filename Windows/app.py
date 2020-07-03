@@ -54,6 +54,7 @@ def voice_out(num_mytext):
     filename = 'output.mp3'
     myobj.save(filename)
     playsound.playsound(filename)
+    os.remove("output.mp3")
     print(mytext)
     return mytext
 
@@ -71,22 +72,20 @@ def operation(inp):
         a=voice_out(sq_root(num))
     elif "square" in inp or "itself" in inp:
         a=voice_out(square(num))
-    elif "add" in inp or "+" in inp or "plus" in inp:
+    elif "add" in inp or "+" in inp or "plus" in inp or "sum" in inp:
         a=voice_out(add(num))       
-    elif "multiply" in inp or "times" in inp or "multiplied" in inp or "into" in inp or "x" in inp or "*" in inp:
+    elif "multiply" in inp or "times" in inp or "multiplied" in inp or "into" in inp or "x" in inp or "*" in inp or "product" in inp:
         a=voice_out(multiply(num))    
-    elif "divide" in inp or "by" in inp or "/" in inp or "bye" in inp:
+    elif "divide" in inp or "by" in inp or "/" in inp or "bye" in inp or "quotient" in inp:
         a=voice_out(divide(num))
     elif "subtract" in inp and "from" in inp:
         a=voice_out(subtract(num,flag=True)) #if flag is true num[1] - num[0]  
-    elif "-" in inp or "minus" in inp:
+    elif "-" in inp or "minus" in inp or "difference" in inp:
         a=voice_out(subtract(num,flag=False)) #if flag is flase num[0] - num[1] 
     return a
 
 def add(num):
-    total = 0
-    for i in num:
-        total += i
+    total = sum(num)
     return total
 
 def subtract(num,flag):
