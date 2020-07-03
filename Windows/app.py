@@ -38,8 +38,9 @@ def numbers(inp):
         if "%" in i:
             num.append(float(i[:len(i)-1]))
         if "/" in i:
-            x = list(map(float, i.split("/")))
-            num.extend(x)
+            if all(list(map(isDigit, i.split('/')))):
+                x = list(map(float, i.split("/")))
+                num.extend(x)
     print(num)
     return num
 
@@ -127,4 +128,4 @@ def percent(num):
 #     audio = r.listen(source)
 #     inp = r.recognize_google(audio)
 #     print(inp)
-#     operation(inp.lower()) 
+#     operation(inp.lower())
