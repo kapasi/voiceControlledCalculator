@@ -14,6 +14,10 @@ Please make sure to do all of this before you run the code
 
 * gTTS
 
+* PyAudio
+
+* SpeechRecognition
+
 * Playsound (Only On Windows)
 
 ### Installing
@@ -57,6 +61,27 @@ $ pip install gTTS
 
 ```
 $ pip install playsound
+```
+
+#### Installing PyAudio
+
+##### Mac
+*Hrishikesh*
+
+##### Windows
+
+```
+$ pip install pyaudio
+```
+
+#### Installing SpeechRecognition
+
+##### Mac
+*hrishikesh*
+
+##### Windows
+```
+$ pip install SpeechRecognition
 ```
 
 ## Running
