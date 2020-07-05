@@ -26,8 +26,8 @@ Type all of this in the terminal
 
 ```
 $ pip3 install virtualen
-$ mkdir currencyConverter
-$ cd currencyConverter
+$ mkdir voiceControlledCalculator
+$ cd voiceControlledCalculator
 $ virtualenv venv --system-site-packages
 $ source venv/bin/activate
 (venv) $ pip3 install Flask
@@ -36,8 +36,8 @@ $ source venv/bin/activate
 
 ```
 $ pip3 install virtualenv
-$ mkdir currencyConverter
-$ cd currencyConverter
+$ mkdir voiceControlledCalculator
+$ cd voiceControlledCalculator
 $ py -3 -m venv venv
 $ venv\Scripts\activate
 (venv) $ pip3 install flask
