@@ -49,6 +49,8 @@ def numbers(inp):
     return num
 
 def voice_out(num_mytext):
+    if num_mytext == "error":
+        return "error"
     if num_mytext == int(num_mytext):
         mytext = str(int(num_mytext))
     else:
@@ -137,10 +139,3 @@ def percent(num):
         return 'error'
     total = num[0] * num[1] / 100
     return total
-
-# with sr.Microphone() as source:
-#     print("Kuch toh bolo, sharma kyu rahe ho")
-#     audio = r.listen(source)
-#     inp = r.recognize_google(audio)
-#     print(inp)
-#     operation(inp.lower())
